@@ -31,6 +31,10 @@ header .wrapper, nav, .nav-menu {
     align-items: center;
 }
 
+header #logo {
+    transition: all 1s cubic-bezier(0.67, -0.43, 0.3, 1.28);
+}
+
 .wrapper {
     padding: 0 10em;
     justify-content: space-between;
@@ -59,7 +63,7 @@ header .wrapper, nav, .nav-menu {
 
 .hero {
     background: #1496F6;
-    margin-top: 7em;
+    margin-top: 6em;
     border-bottom-left-radius: 124px;
 }
 
@@ -72,7 +76,7 @@ header .wrapper, nav, .nav-menu {
 
 .hero section .text {
     width: 50%;
-    margin-top: 6em;
+    margin-top: 4em;
 }
 
 .hero section .text h1 {
@@ -101,7 +105,7 @@ header .wrapper, nav, .nav-menu {
     transition: 0.5s;
 }
 
-.hero section .text button:hover {
+.hero section .text button:hover, #register form button:hover, #signature .signature-card .signature-footer button:hover {
     background: #e08e12;
 }
 
@@ -109,7 +113,7 @@ header .wrapper, nav, .nav-menu {
     margin: 4em 10em;
 }
 
-#features h2 {
+#features h1, #about h1, #signature h1 {
     color: #1496F6;
 }
 
@@ -125,39 +129,40 @@ header .wrapper, nav, .nav-menu {
     font-weight: 500;
 }
 
-.register {
+#register {
     background: #1496F6;
 }
 
-.register .form {
-    width: 50%;
+.form {
+    /* width: 50%; */
+    flex: 1;
     margin-top: 4em;
 }
 
 .svg {
-    width: 60%;
+    flex: 1;
 }
 
-.register .titulo {
+.titulo {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 2em 0;
+    padding: 2em 0 0 0;
     color: white;
 }
 
-.register .titulo .title:after {
+#register .titulo .title:after {
     background-color: white;
 }
 
-.register form .field {
+#register form .field {
     flex: 1;
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
 }
 
-.register form .field input {
+form .field input {
     flex: 1;
     margin-top: 0.2em;
     background: white;
@@ -166,23 +171,24 @@ header .wrapper, nav, .nav-menu {
     padding: 16px 24px;
     font-size: 1rem;
     color: #6c6c80;
+    width: 100%;
 }
 
-.register form .form-group {
+#register form .form-group {
     display: flex;
 }
 
-.register form .field label {
+#register form .field label {
     font-size: 1rem;
     margin-bottom: 0.2em;
     color: white;
 }
 
-.register form .field:disabled {
+#register form .field:disabled {
     cursor: not-allowed;
 }
 
-.register form button {
+#register form button {
     width: 260px;
     height: 56px;
     background: #F79D14;
@@ -199,13 +205,234 @@ header .wrapper, nav, .nav-menu {
     float: right;
 }
 
-.register form button:hover {
-    background: #e08e12;
-}
 
-.register form button:active {
+#register form button:active {
     transform: scale(0.9, 0.9)
 }
+
+#about .field-section {
+    flex-direction: column;
+}
+
+#about .card {
+    flex: 1;
+    border: 1px solid #1496F6;
+    border-radius: 180px;
+    padding: 1em;
+    margin-bottom: 2em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+#about .card .photo {
+    display: flex;
+    align-items: center;
+
+    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    /* float: right; */
+}
+
+#about .card img {
+    position: absolute;
+    /* bottom: -8rem; */
+}
+
+#about .card .description {
+    /* margin: 0 1.5em; */
+    /* display: flex;
+    flex-direction: column; */
+    padding: 0 1.5em;
+}
+
+#about .card .description h2 {
+    color: #373737;
+    margin-bottom: 1em;
+}
+
+#about .card .description a {
+    text-decoration: none;
+    color: #F79D14;
+    font-weight: bold;
+    
+    margin: 1em 1.5em;
+    border: 3px solid #F79D14;
+    border-radius: 38px;
+    /* padding: 1em 2em; */
+    width: 280px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    transition: 0.2s;
+}
+
+#about .card .description a:hover {
+    color: white;
+    background: #F79D14;
+}
+
+#about .right-card {
+    justify-content: flex-end;
+    border-color: #41AD49;
+}
+
+#about .right-card .description {
+    text-align: right;
+}
+
+#about .right-card .description a {
+    float: left;
+}
+
+#signature .signature-card {
+    padding: 1.5em;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    color: #303030;
+}
+
+#signature .signature-card #line {
+    border-bottom: 1px solid #a7a7a7;
+    margin: 2em 0;
+}
+
+#signature .signature-card .signature-quality {
+    display: flex;
+    align-items: flex-start;
+}
+
+#signature .signature-card .signature-quality img {
+    width: 32px;
+    margin-right: 1em;
+}
+
+#signature .signature-card .signature-footer {
+    margin-top: 3em;
+}
+
+#signature .signature-card .signature-footer button {
+    width: 100%;
+    background: #F79D14;
+    border-radius: 100px;
+    padding: 1em 0;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.2s;
+    cursor: pointer;
+    outline-style: none;
+}
+
+
+
+/* Footer start */
+footer {
+    background: #303030;
+}
+
+footer p, footer h2, footer small {
+    color: white;
+}
+
+footer .social-medias {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    border-right: 1px solid #707070;
+}
+
+footer .social-medias .button-group {
+    display: flex;
+    margin: 0.8em 0;
+}
+
+footer .social-medias .button-group a {
+    text-decoration: none;
+    color: white;
+    background: #444444;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: 0.2s;
+}
+
+
+footer .logo img {
+    width: auto;
+}
+
+footer #copy {
+    /* font-size: 1.1rem; */
+    font-weight: 500;
+    color: #B1B1B1;
+}
+
+footer .social-medias small a {
+    font-size: 0.8rem;
+    color: #3F8BEE;
+}
+
+footer form button {
+    width: 111px;
+    height: 50px;
+    background:#444444;
+    border-radius: 8px;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 1em;
+    transition: 0.2s;
+    cursor: pointer;
+    align-self: flex-end;
+    outline-style: none;
+    float: right;
+}
+
+footer .contact {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+}
+
+footer .contact p {
+    font-size: 1rem;
+    margin: 0.5em 0;
+}
+
+footer .contact textarea {
+    padding: 0.8em;
+    border-radius: 6px;
+    margin-top: 1em;
+    border: 0;
+    width: 100%;
+}
+
+footer form button:hover, footer .social-medias .button-group a:hover {
+    background: white;
+    color: #444444;
+}
+/* Footer end */
 
 /* Utils */
 .yellow {
