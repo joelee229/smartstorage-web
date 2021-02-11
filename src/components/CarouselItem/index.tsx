@@ -11,7 +11,7 @@ interface Props {
 const Item: React.FC<Props> = ({url, title, text}) => {
     return (
         <div className="item-wrapper">
-            <div className="item-image">
+            <div className="images">
                 <img src={url} alt={title}/>
             </div>
             

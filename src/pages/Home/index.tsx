@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
+import LazyLoad from "react-lazyload";
 // import * as ReactDOM from 'react-dom';
 
 import './styles.css';
@@ -42,7 +43,7 @@ const Home: React.FC = () => {
             <header>
                 <div className="wrapper">
                     <div className="logoDiv">
-                        <a href="#">
+                        <a href="#logo">
                             <img id="logo" src={sourceLogo} alt="Logo"/>
                         </a>
                     </div>
@@ -66,21 +67,21 @@ const Home: React.FC = () => {
             {/* Header end */}
 
             <div className="hero">
-                <section>
+                <section className="field-section">
                     <div className="text">
                         <h1>StartUp <span className="yellow">#1</span> no gerenciamento em estoque de alimentos.</h1>
                         <p>O <span className="yellow">SmartStorage</span> é um aplicativo para o controle/organização do armazenamento de produtos alimentícios. Facilitando a rotina dos usuários, por meio de um controle de despensa preciso e simples, uma lista de compra ágil, lembretes para evitar o desperdício de alimentos e até mesmo de dinheiro.</p>
                         <button className="action">Comece já</button>        
                     </div>
 
-                    <div className="foto">
+                    <div className="images">
                         <img id="homePhoto" src={HomePhoto} alt="Carinha legal"/>
                     </div>
                 </section>
             </div>
 
             <div id="features">
-                <h1 className="title">Características</h1>
+                <h2 className="title">Características</h2>
                 <div className="paragraph">
                     <p>O aplicativo conta com diversas funcionalidades como: o registro de alimentos, aviso de validades próximas, procura de receitas baseadas nos seus alimentos e ainda um serviço esclusivo para quem possui a assinatura</p>
                 </div>
@@ -94,10 +95,10 @@ const Home: React.FC = () => {
 
             <div id="register">
                 <div className="titulo">
-                    <h1 className="title">Registrar-se</h1>
+                    <h2 className="title">Registrar-se</h2>
                 </div>
                 <section className="field-section">    
-                    <div className="svg">
+                    <div className="svg images">
                         <img src={Register} alt="Login"/>
                     </div>
                     <div className="form">
@@ -135,88 +136,98 @@ const Home: React.FC = () => {
 
             <div id="about">
                 <div className="titulo">
-                    <h1 className="title">Sobre nós</h1>
+                    <h2 className="title">Sobre nós</h2>
                 </div>
 
                 <section className="field-section">
-                        <div className="card">
-                            <div>
-                                <div className="photo">
-                                    <img src={Joel} alt="Joel"/>
+                       <LazyLoad height={300} offset={100}>
+                            <div className="card">
+                                <div>
+                                    <div className="photo">
+                                        <img src={Joel} alt="Joel"/>
+                                    </div>
+                                </div>
+                                <div className="description">
+                                    <h2>Joel Sena</h2>
+                                    <p>"Desde que adentrei o  mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais."</p>
+                                    <p>Cargo: <b>Gerente geral da equipe de desenvolvimento</b></p>
+                                    <a href="https://www.linkedin.com/in/joel-sena/" target="_blank" rel="noreferrer">Ver currículo</a>
                                 </div>
                             </div>
-                            <div className="description">
-                                <h2>Joel Sena</h2>
-                                <p>"Desde que adentrei o  mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais."</p>
-                                <p>Cargo: <b>Gerente geral da equipe de desenvolvimento</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
-                            </div>
-                        </div>
+                       </LazyLoad>
 
-                        <div className="card right-card">
-                            <div className="description">
-                                <h2>Felipe Toledo</h2>
-                                <p>"Está tendo problemas com o aplicativo, eis a sua solução, procure-me e tudo estará solucionado, sempre prezo pela a educação."</p>
-                                <p>Cargo: <b>Líder na organização da equipe, back-end, suporte, gestão da empresa.</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
-                            </div>
+                       <LazyLoad height={300}>
+                            <div className="card right-card">
+                                <div className="description">
+                                    <h2>Felipe Toledo</h2>
+                                    <p>"Está tendo problemas com o aplicativo, eis a sua solução, procure-me e tudo estará solucionado, sempre prezo pela a educação."</p>
+                                    <p>Cargo: <b>Líder na organização da equipe, back-end, suporte, gestão da empresa.</b></p>
+                                    <a href="https://github.com/SnowsToledo" target="_blank" rel="noreferrer">Ver currículo</a>
+                                </div>
 
-                            <div>
-                                <div className="photo">
-                                    <img src={Felipe} alt="Joel"/>
+                                <div>
+                                    <div className="photo">
+                                        <img src={Felipe} alt="Felipe"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </LazyLoad>
 
-                        <div className="card">
-                            <div>
-                                <div className="photo">
-                                    <img src={Lucas} alt="Joel"/>
+                        <LazyLoad height={300}>
+                            <div className="card">
+                                <div>
+                                    <div className="photo">
+                                        <img src={Lucas} alt="Lucas"/>
+                                    </div>
+                                </div>
+                                <div className="description">
+                                    <h2>Lucas de Araújo</h2>
+                                    <p>"Vou dizer uma coisa, não digo nada, e digo mais, só digo isso: Em busca dos meus sonhos"</p>
+                                    <p>Cargo: <b>Desenvolvedor front-end</b></p>
+                                    <a href="https://github.com/supersarradimn" target="_blank" rel="noreferrer">Ver currículo</a>
                                 </div>
                             </div>
-                            <div className="description">
-                                <h2>Lucas de Araújo</h2>
-                                <p>"Vou dizer uma coisa, não digo nada, e digo mais, só digo isso: Em busca dos meus sonhos"</p>
-                                <p>Cargo: <b>Desenvolvedor front-end</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
-                            </div>
-                        </div>
+                        </LazyLoad>
 
-                        <div className="card right-card">
-                            <div className="description">
-                                <h2>Cristhian de Azambuja</h2>
-                                <p>"Estou sempre a disposição e de bom humor para te entregar a melhor experiência possível com meu trabalho."</p>
-                                <p>Cargo: <b>Recursos humanos</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
-                            </div>
+                        <LazyLoad height={300}>
+                            <div className="card right-card">
+                                <div className="description">
+                                    <h2>Cristhian de Azambuja</h2>
+                                    <p>"Estou sempre a disposição e de bom humor para te entregar a melhor experiência possível com meu trabalho."</p>
+                                    <p>Cargo: <b>Marketing Digital</b></p>
+                                    <a href="https://www.linkedin.com/in/cristhian-villanova-1a67a3206/" target="_blank" rel="noreferrer">Ver currículo</a>
+                                </div>
 
-                            <div>
-                                <div className="photo">
-                                    <img src={Cris} alt="Joel"/>
+                                <div>
+                                    <div className="photo">
+                                        <img src={Cris} alt="Cristhian"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </LazyLoad>
 
-                        <div className="card">
-                            <div>
-                                <div className="photo">
-                                    <img src={Isa} alt="Joel"/>
+                        <LazyLoad height={300}>
+                            <div className="card">
+                                <div>
+                                    <div className="photo">
+                                        <img src={Isa} alt="Joel"/>
+                                    </div>
+                                </div>
+                                <div className="description">
+                                    <h2>Israel Teles</h2>
+                                    <p>"Não tenho experiência em empregos a tempo inteiro, mas tenho algumas experiências como programador freelancer . "</p>
+                                    <p>Cargo: <b>Desenvolvedor back-end</b></p>
+                                    <a href="https://www.linkedin.com/in/israel-teles-bandeira-4a331b195/" target="_blank" rel="noreferrer">Ver currículo</a>
                                 </div>
                             </div>
-                            <div className="description">
-                                <h2>Israel Teles</h2>
-                                <p>"Não tenho experiência em empregos a tempo inteiro, mas tenho algumas experiências como programador freelancer . "</p>
-                                <p>Cargo: <b>Desenvolvedor back-end</b></p>
-                                <a href="https://www.linkedin.com/in/israel-teles-bandeira-4a331b195/" target="_blank" rel="noreferrer">Ver currículo</a>
-                            </div>
-                        </div>
+                        </LazyLoad>
                         
                 </section>
             </div>
 
             <div id="signature">
                 <div className="titulo">
-                    <h1 className="title">Assinaturas</h1>
+                    <h2 className="title">Assinaturas</h2>
                 </div>
 
                 <section className="field-section">

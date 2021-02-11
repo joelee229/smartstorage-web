@@ -32,7 +32,7 @@ header .wrapper, nav, .nav-menu {
 }
 
 header #logo {
-    transition: all 1s cubic-bezier(0.67, -0.43, 0.3, 1.28);
+    transition: all 1s;
 }
 
 .wrapper {
@@ -68,7 +68,7 @@ header #logo {
     animation: fade 1000ms;
 }
 
-.hero section, .field-section {
+.field-section {
     display: flex;
     justify-content: center;
     /* align-items: center; */
@@ -114,7 +114,7 @@ header #logo {
     margin: 4em 10em;
 }
 
-#features h1, #about h1, #signature h1 {
+#features h2, #about h2, #signature h2 {
     color: #1496F6;
 }
 
@@ -143,11 +143,15 @@ header #logo {
 .form {
     /* width: 50%; */
     flex: 1;
-    margin-top: 4em;
+    display: flex;
+    align-items: center;
+    /* margin-top: 4em; */
 }
 
 .svg {
     flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .titulo {
@@ -223,15 +227,23 @@ button:active, #about a:active, .button-group a:active {
 
 #about .card {
     flex: 1;
-    border: 1px solid #1496F6;
+    border: 2px solid #1496F6;
     border-radius: 180px 0 0 180px;
-    padding: 1em;
+    padding: 0.5em;
     margin-bottom: 2em;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.096);
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
+    transition: all 0.2s;
+    /* transition: all 1s cubic-bezier(0.67, -0.43, 0.3, 1.28); */
+    animation: fadeCard 2s;
+}
+
+#about .card:hover {
+    transform: translateX(20px);
 }
 
 #about .card .photo {
@@ -244,6 +256,7 @@ button:active, #about a:active, .button-group a:active {
     overflow: hidden;
     position: relative;
     /* float: right; */
+    transition: 0.2s;
 }
 
 #about .card img {
@@ -268,12 +281,12 @@ button:active, #about a:active, .button-group a:active {
     color: #F79D14;
     font-weight: bold;
     
-    margin: 1em 1.5em;
-    border: 3px solid #F79D14;
+    margin: 0 1.5em;
+    border: 2px solid #F79D14;
     border-radius: 38px;
     /* padding: 1em 2em; */
-    width: 280px;
-    height: 70px;
+    width: 240px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -306,7 +319,7 @@ button:active, #about a:active, .button-group a:active {
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 380px;
     color: #303030;
 }
 
@@ -326,7 +339,7 @@ button:active, #about a:active, .button-group a:active {
 }
 
 #signature .signature-card .signature-footer {
-    margin-top: 3em;
+    margin-top: 6em;
 }
 
 #signature .signature-card .signature-footer button {
@@ -337,7 +350,7 @@ button:active, #about a:active, .button-group a:active {
     border: 0;
     color: #fff;
     font-weight: bold;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     transition: 0.2s;
     cursor: pointer;
     outline-style: none;
@@ -424,7 +437,7 @@ footer .contact {
 }
 
 footer .contact p {
-    font-size: 1rem;
+    /* font-size: 1rem; */
     margin: 0.5em 0;
 }
 
@@ -469,6 +482,17 @@ footer form button:hover, footer .social-medias .button-group a:hover {
 /* Utils */
 
 /* Animations */
+@keyframes fadeCard {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }to {
+        opacity: 1;
+        transform: translateY(0);
+        /* transform: cubic-bezier(0.67, -0.43, 0.3, 1.28); */
+    }
+}
+
 @keyframes fade {
     from {
         opacity: 0;
