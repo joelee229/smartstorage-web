@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
-import * as ReactDOM from 'react-dom';
+// import * as ReactDOM from 'react-dom';
 
 import './styles.css';
+import './responsive.css';
 import LogoExtended from '../../assets/illustrations/logo/logo-extended.png';
 import LogoShort from '../../assets/illustrations/logo/logo-short.png';
 import HomePhoto from '../../assets/illustrations/home.png';
@@ -12,7 +13,8 @@ import Cris from '../../assets/photos/cris.jpeg';
 import Felipe from '../../assets/photos/felipe.jpg';
 import Isa from '../../assets/photos/isa.jpg';
 import Lucas from '../../assets/photos/lucas.jpg';
-import Valid from '../../assets/illustrations/Valid.svg'
+import Valid from '../../assets/illustrations/Valid.svg';
+import CarouselLib from '../../components/Carousel';
 
 
 const Home: React.FC = () => {
@@ -84,7 +86,11 @@ const Home: React.FC = () => {
                 </div>
             </div>
 
-            <div id="carousel"></div>
+            <div id="carousel">
+                <section className="field-section">
+                    <CarouselLib />
+                </section>
+            </div>
 
             <div id="register">
                 <div className="titulo">
@@ -143,7 +149,7 @@ const Home: React.FC = () => {
                                 <h2>Joel Sena</h2>
                                 <p>"Desde que adentrei o  mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais."</p>
                                 <p>Cargo: <b>Gerente geral da equipe de desenvolvimento</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank">Ver currículo</a>
+                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
                             </div>
                         </div>
 
@@ -152,7 +158,7 @@ const Home: React.FC = () => {
                                 <h2>Felipe Toledo</h2>
                                 <p>"Está tendo problemas com o aplicativo, eis a sua solução, procure-me e tudo estará solucionado, sempre prezo pela a educação."</p>
                                 <p>Cargo: <b>Líder na organização da equipe, back-end, suporte, gestão da empresa.</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank">Ver currículo</a>
+                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
                             </div>
 
                             <div>
@@ -172,7 +178,7 @@ const Home: React.FC = () => {
                                 <h2>Lucas de Araújo</h2>
                                 <p>"Vou dizer uma coisa, não digo nada, e digo mais, só digo isso: Em busca dos meus sonhos"</p>
                                 <p>Cargo: <b>Desenvolvedor front-end</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank">Ver currículo</a>
+                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
                             </div>
                         </div>
 
@@ -181,7 +187,7 @@ const Home: React.FC = () => {
                                 <h2>Cristhian de Azambuja</h2>
                                 <p>"Estou sempre a disposição e de bom humor para te entregar a melhor experiência possível com meu trabalho."</p>
                                 <p>Cargo: <b>Recursos humanos</b></p>
-                                <a href="https://joelee229.github.io/joel-sena" target="_blank">Ver currículo</a>
+                                <a href="https://joelee229.github.io/joel-sena" target="_blank" rel="noreferrer">Ver currículo</a>
                             </div>
 
                             <div>
@@ -201,7 +207,7 @@ const Home: React.FC = () => {
                                 <h2>Israel Teles</h2>
                                 <p>"Não tenho experiência em empregos a tempo inteiro, mas tenho algumas experiências como programador freelancer . "</p>
                                 <p>Cargo: <b>Desenvolvedor back-end</b></p>
-                                <a href="https://www.linkedin.com/in/israel-teles-bandeira-4a331b195/" target="_blank">Ver currículo</a>
+                                <a href="https://www.linkedin.com/in/israel-teles-bandeira-4a331b195/" target="_blank" rel="noreferrer">Ver currículo</a>
                             </div>
                         </div>
                         
@@ -244,9 +250,9 @@ const Home: React.FC = () => {
                         </div>
                         <p id="copy">SmartStorage&copy;2020</p>
                         <div className="button-group">
-                            <a href="https://www.instagram.com" target="_blank"><FaInstagram /></a>
-                            <a href="https://www.facebook.com" target="_blank"><FaFacebook /></a>
-                            <a href="https://www.twitter.com" target="_blank"><FaTwitter /></a>
+                            <a href="https://www.instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
+                            <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><FaFacebook /></a>
+                            <a href="https://www.twitter.com" target="_blank" rel="noreferrer"><FaTwitter /></a>
                         </div>
                         <small>Illustrações por <a href="https://www.jamesdaly.me">James Daly</a></small>
                     </div>
@@ -257,7 +263,7 @@ const Home: React.FC = () => {
                         <form >
                             <fieldset>
                                 <div className="field">
-                                    <input type="email" name="email" id="email" required placeholder="Seu email"/>
+                                    <input type="email" name="emailContact" id="emailContact" required placeholder="Seu email"/>
                                 </div>
 
                                 <div className="field">

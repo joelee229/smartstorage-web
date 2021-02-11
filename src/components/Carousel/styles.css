@@ -1,0 +1,47 @@
+.rec.rec-arrow {
+    color: #F79D14;
+    background: none;
+    box-shadow: none;
+}
+
+.rec.rec-arrow:hover {
+    background-color: #F79D14;
+    color: white;
+}
+
+.rec.rec-arrow:hover:enabled {
+    background-color: #F79D14;
+    color: white;
+}
+
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+}
+
+.rec-carousel-item:focus {
+    outline: none;
+}
+
+.rec.rec-arrow:focus {
+    background: #F79D14;
+    color: white;
+}
+
+.rec.rec-arrow:focus:enabled {
+    background: #F79D14;
+    color: white;
+}
+
+.rec.rec-arrow:active {
+    background: #F79D14;
+    color: white;
+}
+
+.rec.rec-dot {
+    box-shadow: 0 0 1px 2px rgba(247, 156, 20, 0.8);
+}
+
+.rec.rec-dot_active {
+    background-color: #F79D14;
+    box-shadow: 0 0 1px 3px rgba(247, 156, 20, 0.5);
+}

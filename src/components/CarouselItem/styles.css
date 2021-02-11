@@ -1,0 +1,37 @@
+.item-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2em 0;
+}
+
+/* .item-wrapper .item-image {
+    flex:1;
+} */
+
+/* .item-wrapper .item-image img {
+    width: 100%;
+    height: auto;
+} */
+
+.item-wrapper .item-description {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2em;
+}
+
+.item-wrapper .item-description h2 {
+    color: white;
+    margin-bottom: 2em;
+}
+
+.item-wrapper .item-description p {
+    color: white;
+}
+
+
+.item-wrapper .item-description .title:after {
+    background-color: white;
+    margin-right: 40px;
+}
