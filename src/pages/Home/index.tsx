@@ -105,7 +105,7 @@ const Home: React.FC = () => {
                         <form >
                             <fieldset>
                                 <div className="field">
-                                    <label htmlFor="email">Usuário</label>
+                                    <label htmlFor="user">Usuário</label>
                                     <input type="text" name="user" id="user" required placeholder="Ex: Jane Doe"/>
                                 </div>
 

@@ -173,6 +173,10 @@ header #logo {
     margin-bottom: 1em;
 }
 
+.form form {
+    flex: 1;
+}
+
 form .field input {
     flex: 1;
     margin-top: 0.2em;
