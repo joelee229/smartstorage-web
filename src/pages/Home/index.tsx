@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import LazyLoad from "react-lazyload";
+import { useTranslation, Trans} from 'react-i18next';
 // import * as ReactDOM from 'react-dom';
 
 import './styles.css';
 import './responsive.css';
+import '../../translate/i18n';
 import LogoExtended from '../../assets/illustrations/logo/logo-extended.png';
 import LogoShort from '../../assets/illustrations/logo/logo-short.png';
 import HomePhoto from '../../assets/illustrations/home.png';
@@ -16,10 +18,55 @@ import Isa from '../../assets/photos/isa.jpg';
 import Lucas from '../../assets/photos/lucas.jpg';
 import Valid from '../../assets/illustrations/Valid.svg';
 import CarouselLib from '../../components/Carousel';
+import Usa from '../../assets/illustrations/flags/usa.svg';
+import Br from '../../assets/illustrations/flags/br.svg';
+import Span from '../../assets/illustrations/flags/span.svg';
+import Select from "react-select";
 
 
 const Home: React.FC = () => {
     const [sourceLogo, setSourceLogo] = React.useState<string>(LogoExtended);
+    const [currentFlag, setCurrentFlag] = React.useState<string>(Br);
+    useEffect(() => {
+        const currentLanguage = localStorage.getItem('i18nextLng');
+        if(currentLanguage === "en"){
+            setCurrentFlag(Usa);
+        }else if(currentLanguage === "es"){
+            setCurrentFlag(Span);
+        }else {
+            setCurrentFlag(Br);
+        }
+    }, []);
+
+    const options = [
+        {
+            value: "pt",
+            label: (
+                <img src={Br} alt="Português"/>
+            )
+        },
+        {
+            value: "en",
+            label: (
+                <img src={Usa} alt="Inglês"/>
+            )
+        },
+        {
+            value: "es",
+            label: (
+                <img src={Span} alt="Espanhol"/>
+            )
+        }
+    ]
+    
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng?: string) => {
+        if(lng){
+            i18n.changeLanguage(lng);
+        }
+    }
+
     window.onscroll = function(){
         scrollFunction();
     };
@@ -50,15 +97,15 @@ const Home: React.FC = () => {
                     <nav>
                         <ul className="nav-menu">
                             <li>
-                                <a href="#features">Características</a>
+                                <a href="#features">{t('nav.items.1')}</a>
                             </li>
 
                             <li>
-                                <a href="#about">Sobre nós</a>
+                                <a href="#about">{t('nav.items.2')}</a>
                             </li>
 
                             <li>
-                                <a href="#contact">Contato</a>
+                                <a href="#contact">{t('nav.items.3')}</a>
                             </li>
                         </ul>
                     </nav>
@@ -69,9 +116,19 @@ const Home: React.FC = () => {
             <div className="hero">
                 <section className="field-section">
                     <div className="text">
-                        <h1>StartUp <span className="yellow">#1</span> no gerenciamento em estoque de alimentos.</h1>
-                        <p>O <span className="yellow">SmartStorage</span> é um aplicativo para o controle/organização do armazenamento de produtos alimentícios. Facilitando a rotina dos usuários, por meio de um controle de despensa preciso e simples, uma lista de compra ágil, lembretes para evitar o desperdício de alimentos e até mesmo de dinheiro.</p>
-                        <button className="action">Comece já</button>        
+                        <h1>
+                            {t('hero.title.part1')}
+                            <span className='yellow'>
+                                #1
+                            </span>
+                            {t('hero.title.part2')}
+                        </h1>
+                        <p>
+                            {t('hero.text.part1')}
+                            <span className="yellow">SmartStorage</span>
+                            {t('hero.text.part2')}
+                        </p>
+                        <button className="action">{t('hero.button')}</button>        
                     </div>
 
                     <div className="images">
@@ -80,10 +137,19 @@ const Home: React.FC = () => {
                 </section>
             </div>
 
+            <Select
+                className="custom-select"
+                placeholder={
+                    <img src={currentFlag} alt={i18n.language} />
+                }
+                options={options}
+                onChange={(option) => changeLanguage(option?.value)}
+            />
+
             <div id="features">
-                <h2 className="title">Características</h2>
+                <h2 className="title">{t('features.title')}</h2>
                 <div className="paragraph">
-                    <p>O aplicativo conta com diversas funcionalidades como: o registro de alimentos, aviso de validades próximas, procura de receitas baseadas nos seus alimentos e ainda um serviço esclusivo para quem possui a assinatura</p>
+                    <p>{t('features.text')}</p>
                 </div>
             </div>
 
@@ -95,7 +161,7 @@ const Home: React.FC = () => {
 
             <div id="register">
                 <div className="titulo">
-                    <h2 className="title">Registrar-se</h2>
+                    <h2 className="title">{t('register.title')}</h2>
                 </div>
                 <section className="field-section">    
                     <div className="svg images">
@@ -105,29 +171,29 @@ const Home: React.FC = () => {
                         <form >
                             <fieldset>
                                 <div className="field">
-                                    <label htmlFor="user">Usuário</label>
+                                    <label htmlFor="user">{t('register.labels.user')}</label>
                                     <input type="text" name="user" id="user" required placeholder="Ex: Jane Doe"/>
                                 </div>
 
                                 <div className="field">
-                                    <label htmlFor="email">Email</label>
+                                    <label htmlFor="email">{t('register.labels.email')}</label>
                                     <input type="email" name="email" id="email" required placeholder="Ex: janedoe@email.com"/>
                                 </div>
 
                                 <div className="form-group">
                                     <div className="field mr-2">
-                                        <label htmlFor="password">Senha</label>
+                                        <label htmlFor="password">{t('register.labels.password')}</label>
                                         <input type="password" id="password" name="password" required placeholder="*******"/>
                                     </div>
                                     <div className="field">
-                                        <label htmlFor="confirmPassword">Confirmar senha</label>
+                                        <label htmlFor="confirmPassword">{t('register.labels.confirmPassword')}</label>
                                         <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="*******"/>
                                     </div>
                                 </div>
                             </fieldset>
 
                             <button type="submit">
-                                Enviar
+                                {t('register.labels.button')}
                             </button>
                         </form>
                     </div>
@@ -136,7 +202,7 @@ const Home: React.FC = () => {
 
             <div id="about">
                 <div className="titulo">
-                    <h2 className="title">Sobre nós</h2>
+                    <h2 className="title">{t('about.title')}</h2>
                 </div>
 
                 <section className="field-section">
@@ -148,10 +214,13 @@ const Home: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="description">
-                                    <h2>Joel Sena</h2>
-                                    <p>"Desde que adentrei o  mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais."</p>
-                                    <p>Cargo: <b>Gerente geral da equipe de desenvolvimento</b></p>
-                                    <a href="https://www.linkedin.com/in/joel-sena/" target="_blank" rel="noreferrer">Ver currículo</a>
+                                    <h2>{t('about.card1.name')}</h2>
+                                    <p>"{t('about.card1.bio')}"</p>
+                                    <p>
+                                        {t('about.card1.role.part1')}
+                                        <b>{t('about.card1.role.part2')}</b>
+                                    </p>
+                                    <a href="https://www.linkedin.com/in/joel-sena/" target="_blank" rel="noreferrer">{t('about.button')}</a>
                                 </div>
                             </div>
                        </LazyLoad>
@@ -159,10 +228,13 @@ const Home: React.FC = () => {
                        <LazyLoad height={300}>
                             <div className="card right-card">
                                 <div className="description">
-                                    <h2>Felipe Toledo</h2>
-                                    <p>"Está tendo problemas com o aplicativo, eis a sua solução, procure-me e tudo estará solucionado, sempre prezo pela a educação."</p>
-                                    <p>Cargo: <b>Líder na organização da equipe, back-end, suporte, gestão da empresa.</b></p>
-                                    <a href="https://github.com/SnowsToledo" target="_blank" rel="noreferrer">Ver currículo</a>
+                                    <h2>{t('about.card2.name')}</h2>
+                                    <p>"{t('about.card2.bio')}"</p>
+                                    <p>
+                                        {t('about.card2.role.part1')}
+                                        <b>{t('about.card2.role.part2')}</b>
+                                    </p>
+                                    <a href="https://github.com/SnowsToledo" target="_blank" rel="noreferrer">{t('about.button')}</a>
                                 </div>
 
                                 <div>
@@ -181,10 +253,13 @@ const Home: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="description">
-                                    <h2>Lucas de Araújo</h2>
-                                    <p>"Vou dizer uma coisa, não digo nada, e digo mais, só digo isso: Em busca dos meus sonhos"</p>
-                                    <p>Cargo: <b>Desenvolvedor front-end</b></p>
-                                    <a href="https://github.com/supersarradimn" target="_blank" rel="noreferrer">Ver currículo</a>
+                                    <h2>{t('about.card3.name')}</h2>
+                                    <p>"{t('about.card3.bio')}"</p>
+                                    <p>
+                                        {t('about.card3.role.part1')}
+                                        <b>{t('about.card3.role.part2')}</b>
+                                    </p>
+                                    <a href="https://github.com/supersarradimn" target="_blank" rel="noreferrer">{t('about.button')}</a>
                                 </div>
                             </div>
                         </LazyLoad>
@@ -192,10 +267,13 @@ const Home: React.FC = () => {
                         <LazyLoad height={300}>
                             <div className="card right-card">
                                 <div className="description">
-                                    <h2>Cristhian de Azambuja</h2>
-                                    <p>"Estou sempre a disposição e de bom humor para te entregar a melhor experiência possível com meu trabalho."</p>
-                                    <p>Cargo: <b>Marketing Digital</b></p>
-                                    <a href="https://www.linkedin.com/in/cristhian-villanova-1a67a3206/" target="_blank" rel="noreferrer">Ver currículo</a>
+                                    <h2>{t('about.card4.name')}</h2>
+                                    <p>"{t('about.card4.bio')}"</p>
+                                    <p>
+                                        {t('about.card4.role.part1')}
+                                        <b>{t('about.card4.role.part2')}</b>
+                                    </p>
+                                    <a href="https://www.linkedin.com/in/cristhian-villanova-1a67a3206/" target="_blank" rel="noreferrer">{t('about.button')}</a>
                                 </div>
 
                                 <div>
@@ -214,10 +292,13 @@ const Home: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="description">
-                                    <h2>Israel Teles</h2>
-                                    <p>"Não tenho experiência em empregos a tempo inteiro, mas tenho algumas experiências como programador freelancer . "</p>
-                                    <p>Cargo: <b>Desenvolvedor back-end</b></p>
-                                    <a href="https://www.linkedin.com/in/israel-teles-bandeira-4a331b195/" target="_blank" rel="noreferrer">Ver currículo</a>
+                                    <h2>{t('about.card5.name')}</h2>
+                                    <p>"{t('about.card5.bio')}"</p>
+                                    <p>
+                                        {t('about.card5.role.part1')}
+                                        <b>{t('about.card5.role.part2')}</b>
+                                    </p>
+                                    <a href="https://www.linkedin.com/in/israel-teles-bandeira-4a331b195/" target="_blank" rel="noreferrer">{t('about.button')}</a>
                                 </div>
                             </div>
                         </LazyLoad>
@@ -227,14 +308,14 @@ const Home: React.FC = () => {
 
             <div id="signature">
                 <div className="titulo">
-                    <h2 className="title">Assinaturas</h2>
+                    <h2 className="title">{t('signatures.title')}</h2>
                 </div>
 
                 <section className="field-section">
                     <div className="signature-card">
                         <div className="signature-header">
-                            <h2>Plano básico</h2>
-                            <p>BRL5,67/mês</p>
+                            <h2>{t('signatures.card.name')}</h2>
+                            <p>{t('signatures.card.price')}</p>
                         </div>
 
                         <span id="line"></span>
@@ -242,12 +323,12 @@ const Home: React.FC = () => {
                         <div className="signature-body">
                             <div className="signature-quality">
                                 <img src={Valid} width={40} alt=":)"/>
-                                <p>Todas as funcionalidades com uso ilimitado.</p>
+                                <p>{t('signatures.card.functions')}</p>
                             </div>
                         </div>
 
                         <div className="signature-footer">
-                            <button>Começar</button>
+                            <button>{t('signatures.card.button')}</button>
                         </div>
                     </div>
                 </section>
@@ -265,25 +346,27 @@ const Home: React.FC = () => {
                             <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><FaFacebook /></a>
                             <a href="https://www.twitter.com" target="_blank" rel="noreferrer"><FaTwitter /></a>
                         </div>
-                        <small>Illustrações por <a href="https://www.jamesdaly.me">James Daly</a></small>
+                        <Trans i18nKey="footer.credits">
+                            <small>Illustrações por <a href="https://www.jamesdaly.me">James Daly</a></small>
+                        </Trans>
                     </div>
 
                     <div className="contact">
-                        <h2>Contato</h2>
-                        <p><b>Email</b>: smartstock@gmail.com</p>
+                        <h2>{t('footer.contact.title')}</h2>
+                        <p><b>Email</b>: smartstorage@gmail.com</p>
                         <form >
                             <fieldset>
                                 <div className="field">
-                                    <input type="email" name="emailContact" id="emailContact" required placeholder="Seu email"/>
+                                    <input type="email" name="emailContact" id="emailContact" required placeholder={t('footer.contact.placeholder.input')}/>
                                 </div>
 
                                 <div className="field">
-                                    <textarea name="message" id="textArea" cols={30} rows={5} placeholder="Mensagem" ></textarea>
+                                    <textarea name="message" id="textArea" cols={30} rows={5} placeholder={t('footer.contact.placeholder.textarea')} ></textarea>
                                 </div>
                             </fieldset>
 
                             <button type="submit">
-                                Enviar
+                                {t('footer.contact.button')}
                             </button>
                         </form>
                     </div>

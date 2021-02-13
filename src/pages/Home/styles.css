@@ -483,6 +483,24 @@ footer form button:hover, footer .social-medias .button-group a:hover {
     right: 0;
     margin-right: 16px;
 }
+
+#language {
+    padding: 5em;
+}
+
+
+.custom-select {
+    width: 90px;
+    position: fixed !important;
+    bottom: 20%;
+    right: 8px;
+}
+
+
+.custom-select img {
+    width: 40px;
+}
+
 /* Utils */
 
 /* Animations */
