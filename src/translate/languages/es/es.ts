@@ -3,118 +3,121 @@ const messages = {
         translation: {
             nav: {
                 items: {
-                    1: "AYAYA",
-                    2: "Sobre nós",
-                    3: "Contato"
+                    1: "Caracteristicas",
+                    2: "Sobre nosotros",
+                    3: "Contacto"
                 }
             },
 
             hero: {
                 title: {
                     part1: "StartUp ",
-                    part2: " no gerenciamento em estoque de alimentos."
+                    part2: " en la gestión del inventario de alimentos."
                 },
                 text: {
-                    part1: "O ",
-                    part2: " é um aplicativo para o controle/organização do armazenamento de produtos alimentícios. Facilitando a rotina dos usuários, por meio de um controle da dispensa preciso e simples, uma lista de compra ágil, lembretes para evitar o desperdício de alimentos e até mesmo de dinheiro."
+                    part1: "",
+                    part2: " es una aplicación para controlar/organizar el almacenamiento de productos alimenticios. Facilitando la rutina de los usuarios, mediante un preciso y sencillo control de dispensación, una ágil lista de la compra, recordatorios para no desperdiciar comida e incluso dinero."
                 },
-                button: "Comece já"
+                button: "Empezar ahora"
             },
 
             features: {
-                title: "Características",
-                text: "O aplicativo conta com diversas funcionalidades como: o registro de alimentos, aviso de validades próximas, procura de receitas baseadas nos seus alimentos e ainda um serviço exclusivo para quem possui a assinatura."
+                title: "Caracteristicas",
+                text: "La aplicación cuenta con varias funcionalidades como: el registro de alimentos, aviso de caducidad, búsqueda de recetas en base a tu comida e incluso un servicio exclusivo para quienes tienen la suscripción."
             },
 
             carousel: {
                 item1: {
                     title: "Registro de alimentos",
-                    text: "O registro de alimentos é uma funcionalidade para saber quais produtos você possui e suas validades. Ele funciona por meio de um leitor de código barras, após a leitura do código, é registrado o nome do produto, código da empresa, e o país da empresa, que são todas armazenadas e mostradas juntas com a validade.",
+                    text: "El registro de alimentos es una función para saber qué productos tienes y su vigencia. Funciona a través de un lector de códigos de barras, después de leer el código, se registra el nombre del producto, el código de la empresa y el país de la empresa, los cuales se almacenan y muestran junto con la vigencia.",
                 },
                 item2: {
                     title: "Lista de compras",
-                    text: "A lista de compras são todos os produtos que você deseja e que faltam no seu lar. Pode ser criada manualmente, ou automatizada: Manualmente você deve acrescentar cada produto desejado; Automatizada você deve classificar os produtos já registrados como essenciais, assim quando ele acabar, já será adicionado à sua lista de compras."
+                    text: "La lista de la compra incluye todos los productos que desea y le faltan en su hogar. Se puede crear manualmente o automatizar: manualmente debe agregar cada producto deseado; Automatizado deberás clasificar los productos ya registrados como imprescindibles, por lo que cuando finalice se añadirá a tu lista de la compra."
                 },
                 item3: {
-                    title: "Aviso de validade",
-                    text: "O aviso de validades dos produtos é uma notificação caso algum produto esteja perto de seu vencimento. O aviso deve ser configurado por você. Ao iniciar o aplicativo pela primeira vez(ou em qualquer momento) você pode configurar com quantos dias de antecedência você quer ser notificado sobre a validade do produto."
+                    title: "Aviso de vencimiento",
+                    text: "El aviso de caducidad del producto es una notificación si un producto está a punto de caducar. La advertencia debe ser configurada por usted. Al iniciar la aplicación por primera vez (o en cualquier momento) puede configurar con cuántos días de anticipación desea que se le notifique sobre la validez del producto."
                 }
             },
 
             register: {
-                title: "Registrar-se",
+                title: "Registrarse",
                 labels: {
-                    user: "Usuário",
-                    email: "Email",
-                    password: "Senha",
-                    confirmPassword: "Confirmar senha"
+                    user: "Usuario",
+                    email: "Correo electrónico",
+                    password: "Contraseña",
+                    confirmPassword: "Confirmar seña"
                 },
                 button: "Enviar"
             },
 
             about: {
-                title: "Sobre nós",
-                button: "Ver currículo",
+                title: "Sobre nosotros",
+                button: "Ver currículum",
                 card1: {
                     name: "Joel Sena",
-                    bio: "Desde que adentrei o  mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais.",
+                    bio: "Desde que entré al mundo de la programación, he estado descubriendo y explorando muchas tecnologías que están revolucionando el mundo y espero ganar mucha más experiencia en esta área y en otras",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Gerente geral da equipe de desenvolvimento"
+                        part1: "Posición: ",
+                        part2: "Director general del equipo de desarrollo"
                     }
                 },
                 card2: {
                     name: "Felipe Toledo",
-                    bio: "Está tendo problemas com o aplicativo, eis a sua solução, procure-me e tudo estará solucionado, sempre prezo pela a educação.",
+                    bio: "Estás teniendo problemas con la aplicación, aquí está tu solución, búscame y todo se resolverá, siempre valoro la educación.",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Líder na organização da equipe, back-end, suporte, gestão da empresa."
+                        part1: "Posición: ",
+                        part2: "Líder en organización de equipos, back-end, soporte, gestión empresarial."
                     }
                 },
                 card3: {
                     name: "Lucas de Araújo",
-                    bio: "Vou dizer uma coisa, não digo nada, e digo mais, só digo isso: Em busca dos meus sonhos",
+                    bio: "Voy a decir algo, no digo nada, y digo más, solo digo esto: En busca de mis sueños",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Desenvolvedor front-end"
+                        part1: "Posición: ",
+                        part2: "Desarrollador front-end"
                     }
                 },
                 card4: {
                     name: "Cristhian de Azambuja",
-                    bio: "Estou sempre a disposição e de bom humor para te entregar a melhor experiência possível com meu trabalho.",
+                    bio: "Estoy siempre disponible y de buen humor para brindarte la mejor experiencia posible con mi trabajo.",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Marketing Digital"
+                        part1: "Posición: ",
+                        part2: "Desarrollador back-end"
                     }
                 },
                 card5: {
                     name: "Israel Teles",
-                    bio: "Não tenho experiência em empregos a tempo inteiro, mas tenho algumas experiências como programador freelancer.",
+                    bio: "No tengo experiencia en trabajos de tiempo completo, pero tengo algo de experiencia como programador autónomo.",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Desenvolvedor back-end"
+                        part1: "Posición: ",
+                        part2: "Desarrollador back-end"
                     }
                 }
             },
 
             signatures: {
-                title: "Assinaturas",
+                title: "Suscripciones",
                 card: {
-                    name: "Plano básico",
-                    price: "Calcular com outro tipo de tecnica",
-                    functions: "Todas as funcionalidades com uso ilimitado",
-                    button: "Começar"
+                    name: "Plan básico",
+                    price: "EUR0,87/mes",
+                    functions: "Todas las funciones con uso ilimitado",
+                    button: "Comenzar"
                 }
             },
 
             footer: {
-                credits: "Illustrações por <1 href='https://www.jamesdaly.me'>James Daly</1>",
+                credits: {
+                    part1: "Ilustraciones de ",
+                    part2: "James Daly"
+                },
 
                 contact: {
-                    title: "Contato",
+                    title: "Contacto",
                     placeholder: {
-                        input: "Seu email",
-                        textarea: "Mensagem"
+                        input: "Su e-mail",
+                        textarea: "Mensaje"
                     },
                     button: "Enviar"
                 }

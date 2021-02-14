@@ -249,6 +249,10 @@
         height: 240px;
     }
 
+    #signature .signature-card .signature-footer button {
+        font-size: 1.1rem;
+    }
+
     .field-section {
         padding: 2em 4em;
     }

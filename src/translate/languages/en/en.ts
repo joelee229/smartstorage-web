@@ -3,7 +3,7 @@ const messages = {
         translation: {
             nav: {
                 items: {
-                    1: "Features",
+                    1: "Characteristics",
                     2: "About us",
                     3: "Contact"
                 }
@@ -12,111 +12,114 @@ const messages = {
             hero: {
                 title: {
                     part1: "StartUp ",
-                    part2: " no gerenciamento em estoque de alimentos."
+                    part2: " in food inventory management."
                 },
                 text: {
-                    part1: "O ",
-                    part2: " é um aplicativo para o controle/organização do armazenamento de produtos alimentícios. Facilitando a rotina dos usuários, por meio de um controle da dispensa preciso e simples, uma lista de compra ágil, lembretes para evitar o desperdício de alimentos e até mesmo de dinheiro."
+                    part1: "",
+                    part2: " is an application for controlling/organizing the storage of food products. Facilitating the users' routine, through a precise and simple dispensing control, an agile shopping list, reminders to avoid wasting food and even money."
                 },
-                button: "Comece já"
+                button: "Start now"
             },
 
             features: {
-                title: "Características",
-                text: "O aplicativo conta com diversas funcionalidades como: o registro de alimentos, aviso de validades próximas, procura de receitas baseadas nos seus alimentos e ainda um serviço exclusivo para quem possui a assinatura."
+                title: "Characteristics",
+                text: "The application has several features such as: the registration of food, notice of expiration dates, search for recipes based on your food and even an exclusive service for those who have the subscription."
             },
 
             carousel: {
                 item1: {
-                    title: "Registro de alimentos",
-                    text: "O registro de alimentos é uma funcionalidade para saber quais produtos você possui e suas validades. Ele funciona por meio de um leitor de código barras, após a leitura do código, é registrado o nome do produto, código da empresa, e o país da empresa, que são todas armazenadas e mostradas juntas com a validade.",
+                    title: "Food registration",
+                    text: "The food register is a feature to know which products you have and their validity. It works through a barcode reader, after reading the code, the product name, company code, and the country of the company are registered, which are all stored and shown together with the validity.",
                 },
                 item2: {
-                    title: "Lista de compras",
-                    text: "A lista de compras são todos os produtos que você deseja e que faltam no seu lar. Pode ser criada manualmente, ou automatizada: Manualmente você deve acrescentar cada produto desejado; Automatizada você deve classificar os produtos já registrados como essenciais, assim quando ele acabar, já será adicionado à sua lista de compras."
+                    title: "Shopping list",
+                    text: "The shopping list is all the products you want and are missing from your home. It can be created manually, or automated: Manually you must add each desired product; Automated you should classify the products already registered as essential, so when it ends, it will be added to your shopping list."
                 },
                 item3: {
-                    title: "Aviso de validade",
-                    text: "O aviso de validades dos produtos é uma notificação caso algum produto esteja perto de seu vencimento. O aviso deve ser configurado por você. Ao iniciar o aplicativo pela primeira vez(ou em qualquer momento) você pode configurar com quantos dias de antecedência você quer ser notificado sobre a validade do produto."
+                    title: "Expiry notice",
+                    text: "The product expiration notice is a notification if a product is close to expiration. The warning must be configured by you. When starting the app for the first time (or at any time) you can configure how many days in advance you want to be notified about the product's validity."
                 }
             },
 
             register: {
-                title: "Registrar-se",
+                title: "Register",
                 labels: {
-                    user: "Usuário",
+                    user: "User",
                     email: "Email",
-                    password: "Senha",
-                    confirmPassword: "Confirmar senha"
+                    password: "Password",
+                    confirmPassword: "Confirm password"
                 },
-                button: "Enviar"
+                button: "Submit"
             },
 
             about: {
-                title: "Sobre nós",
-                button: "Ver currículo",
+                title: "About Us",
+                button: "View curriculum",
                 card1: {
                     name: "Joel Sena",
-                    bio: "Desde que adentrei o  mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais.",
+                    bio: "Since I entered the world of programming, I have been discovering and exploring many technologies that are revolutionizing the world and I hope to gain much more experience in this area and in others.",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Gerente geral da equipe de desenvolvimento"
+                        part1: "Position: ",
+                        part2: "General manager of the development team"
                     }
                 },
                 card2: {
                     name: "Felipe Toledo",
-                    bio: "Está tendo problemas com o aplicativo, eis a sua solução, procure-me e tudo estará solucionado, sempre prezo pela a educação.",
+                    bio: "You are having problems with the application, here is your solution, look for me and everything will be solved, I always value education.",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Líder na organização da equipe, back-end, suporte, gestão da empresa."
+                        part1: "Position: ",
+                        part2: "Leader in team organization, back-end, support, company management."
                     }
                 },
                 card3: {
                     name: "Lucas de Araújo",
-                    bio: "Vou dizer uma coisa, não digo nada, e digo mais, só digo isso: Em busca dos meus sonhos",
+                    bio: "I'm going to say something, I don't say anything, and I say more, I just say this: In search of my dreams",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Desenvolvedor front-end"
+                        part1: "Position: ",
+                        part2: "Front-end developer"
                     }
                 },
                 card4: {
                     name: "Cristhian de Azambuja",
-                    bio: "Estou sempre a disposição e de bom humor para te entregar a melhor experiência possível com meu trabalho.",
+                    bio: "I am always available and in a good mood to give you the best experience possible with my work.",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Marketing Digital"
+                        part1: "Position: ",
+                        part2: "Back-end developer"
                     }
                 },
                 card5: {
                     name: "Israel Teles",
-                    bio: "Não tenho experiência em empregos a tempo inteiro, mas tenho algumas experiências como programador freelancer.",
+                    bio: "I have no experience in full-time jobs, but I do have some experience as a freelance programmer.",
                     role: {
-                        part1: "Cargo: ",
-                        part2: "Desenvolvedor back-end"
+                        part1: "Position: ",
+                        part2: "Back-end developer"
                     }
                 }
             },
 
             signatures: {
-                title: "Assinaturas",
+                title: "Subscriptions",
                 card: {
-                    name: "Plano básico",
+                    name: "Basic plan",
                     price: "USD1,06/month",
-                    functions: "Todas as funcionalidades com uso ilimitado",
-                    button: "Começar"
+                    functions: "All features with unlimited use",
+                    button: "Begin"
                 }
             },
 
             footer: {
-                credits: "Illustrações por <1 href='https://www.jamesdaly.me'>James Daly</1>",
+                credits: {
+                    part1: "Illustrations by ",
+                    part2: "James Daly"
+                },
 
                 contact: {
-                    title: "Contato",
+                    title: "Contact",
                     placeholder: {
-                        input: "Seu email",
-                        textarea: "Mensagem"
+                        input: "Your email",
+                        textarea: "Message"
                     },
-                    button: "Enviar"
+                    button: "Submit"
                 }
             }
         }

@@ -12,7 +12,7 @@ const messages = {
             hero: {
                 title: {
                     part1: "StartUp ",
-                    part2: " no gerenciamento em estoque de alimentos."
+                    part2: " no gerenciamento do estoque de alimentos."
                 },
                 text: {
                     part1: "O ",
@@ -84,7 +84,7 @@ const messages = {
                     bio: "Estou sempre a disposição e de bom humor para te entregar a melhor experiência possível com meu trabalho.",
                     role: {
                         part1: "Cargo: ",
-                        part2: "Marketing Digital"
+                        part2: "Desenvolvedor back-end"
                     }
                 },
                 card5: {
@@ -108,7 +108,10 @@ const messages = {
             },
 
             footer: {
-                credits: "Illustrações por <1 href='https://www.jamesdaly.me'>James Daly</1>",
+                credits: {
+                    part1: "Illustrações de ",
+                    part2: "James Daly"
+                },
 
                 contact: {
                     title: "Contato",

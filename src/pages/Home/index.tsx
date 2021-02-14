@@ -193,7 +193,7 @@ const Home: React.FC = () => {
                             </fieldset>
 
                             <button type="submit">
-                                {t('register.labels.button')}
+                                {t('register.button')}
                             </button>
                         </form>
                     </div>
@@ -346,9 +346,7 @@ const Home: React.FC = () => {
                             <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><FaFacebook /></a>
                             <a href="https://www.twitter.com" target="_blank" rel="noreferrer"><FaTwitter /></a>
                         </div>
-                        <Trans i18nKey="footer.credits">
-                            <small>Illustrações por <a href="https://www.jamesdaly.me">James Daly</a></small>
-                        </Trans>
+                        <small>{t('footer.credits.part1')}<a href="https://www.jamesdaly.me">James Daly</a></small>
                     </div>
 
                     <div className="contact">
