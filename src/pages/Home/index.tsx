@@ -18,9 +18,9 @@ import Isa from '../../assets/photos/isa.jpg';
 import Lucas from '../../assets/photos/lucas.jpg';
 import Valid from '../../assets/illustrations/Valid.svg';
 import CarouselLib from '../../components/Carousel';
-import Usa from '../../assets/illustrations/flags/usa.svg';
-import Br from '../../assets/illustrations/flags/br.svg';
-import Span from '../../assets/illustrations/flags/span.svg';
+import Usa from '../../assets/illustrations/flags/usa.png';
+import Br from '../../assets/illustrations/flags/brasil.png';
+import Spain from '../../assets/illustrations/flags/spain.png';
 import Select from "react-select";
 
 
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         if(currentLanguage === "en"){
             setCurrentFlag(Usa);
         }else if(currentLanguage === "es"){
-            setCurrentFlag(Span);
+            setCurrentFlag(Spain);
         }else {
             setCurrentFlag(Br);
         }
@@ -54,7 +54,7 @@ const Home: React.FC = () => {
         {
             value: "es",
             label: (
-                <img src={Span} alt="Espanhol"/>
+                <img src={Spain} alt="Espanhol"/>
             )
         }
     ]
@@ -347,6 +347,16 @@ const Home: React.FC = () => {
                             <a href="https://www.twitter.com" target="_blank" rel="noreferrer"><FaTwitter /></a>
                         </div>
                         <small>{t('footer.credits.part1')}<a href="https://www.jamesdaly.me">James Daly</a></small>
+                        <small>
+                            <div>
+                                {t('footer.credits2.part1')}
+                                <a href="https://www.freepik.com" title="Freepik">
+                                    Freepik
+                                </a>
+                                {t('footer.credits2.part2')}
+                                <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a>
+                                </div>
+                        </small>
                     </div>
 
                     <div className="contact">

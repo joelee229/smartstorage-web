@@ -113,6 +113,11 @@ const messages = {
                     part2: "James Daly"
                 },
 
+                credits2: {
+                    part1: "Icons made by ",
+                    part2: " from "
+                },
+
                 contact: {
                     title: "Contact",
                     placeholder: {

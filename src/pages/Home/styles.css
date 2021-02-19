@@ -490,10 +490,24 @@ footer form button:hover, footer .social-medias .button-group a:hover {
 
 
 .custom-select {
-    width: 90px;
+    width: 80px;
     position: fixed !important;
-    bottom: 20%;
+    bottom: 25%;
     right: 8px;
+}
+
+/* Custom select modification */
+.css-tlfecz-indicatorContainer, .css-1gtu0rj-indicatorContainer {
+    padding: 2px !important;
+}
+
+.css-tlfecz-indicatorContainer:focus, .css-tlfecz-indicatorContainer:active {
+    padding: 4px !important;
+}
+
+.css-yk16xz-control {
+    border: 0 !important;
+    box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.096);
 }
 
 
