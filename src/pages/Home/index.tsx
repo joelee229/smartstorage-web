@@ -1,7 +1,10 @@
-import React, {ChangeEvent, useEffect} from 'react';
+import React, {ChangeEvent, useEffect, useCallback, useRef} from 'react';
 import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import LazyLoad from "react-lazyload";
 import { useTranslation, Trans} from 'react-i18next';
+import { FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
+import * as Yup from 'yup';
 // import * as ReactDOM from 'react-dom';
 
 import './styles.css';
@@ -22,11 +25,61 @@ import Usa from '../../assets/illustrations/flags/usa.png';
 import Br from '../../assets/illustrations/flags/brasil.png';
 import Spain from '../../assets/illustrations/flags/spain.png';
 import Select from "react-select";
+import getValidationErrors from '../../utils/getValidationErrors';
+
+import Input from '../../components/Input';
 
 
 const Home: React.FC = () => {
+    const formRef = useRef<FormHandles>(null);
     const [sourceLogo, setSourceLogo] = React.useState<string>(LogoExtended);
     const [currentFlag, setCurrentFlag] = React.useState<string>(Br);
+    // TODO: Adicionar ref para a logo
+
+    // useCallBack => Cria funções que não são renderizadas novamente se algum estado mudar ou coisa do tipo
+    // São memorizadas
+    const handleFormSubmit = useCallback(async (data: object) => {
+        try {
+            formRef.current?.setErrors({});
+            // Criar um shcema para o data que está vindo
+            // TODO: Respostas com o i18n
+            const schema = Yup.object().shape({
+                user: Yup.string()
+                    .required("Nome obrigatório"),
+                email: Yup.string()
+                    .email("Email inválido")
+                    .required("Email obrigatório"),
+                password: Yup.string()
+                    .min(8, "No mínimo 8 dígitos")
+                    .matches(
+                        /^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/,
+                        "A senha deve conter no mínimo Letras maiúsculas, minúscula e números"
+                    ),
+                confirmPassword: Yup.string()
+                    .required("Confirme sua senha")
+                    .when("password", {
+                        is: (val: string) => (val && val.length > 0 ? true : false),
+                        then: Yup
+                          .string()
+                          .oneOf([Yup.ref("password")], "As senhas precisam ser iguais"),
+                    }),
+            });
+
+            await schema.validate(data, {
+                abortEarly: false,
+            });
+        } catch(err) {
+            if (err instanceof Yup.ValidationError) {
+                // Validation failed
+                console.log(err.inner);
+                const validationErrors = getValidationErrors(err);
+
+                formRef.current?.setErrors(validationErrors);
+            }
+        }
+        // console.log(data);
+    }, []);
+
     useEffect(() => {
         const currentLanguage = localStorage.getItem('i18nextLng');
         if(currentLanguage === "en"){
@@ -61,15 +114,13 @@ const Home: React.FC = () => {
     
     const { t, i18n } = useTranslation();
 
-    const changeLanguage = (lng?: string) => {
+    const changeLanguage = useCallback((lng?: string) => {
         if(lng){
             i18n.changeLanguage(lng);
         }
-    }
+    }, []);
 
-    window.onscroll = function(){
-        scrollFunction();
-    };
+    window.onscroll = useCallback(() => scrollFunction(), []);
 
     // const imgLogo = document.querySelector("img#logo") as HTMLImageElement;
     // const logo = ReactDOM.findDOMNode("logo") as HTMLImageElement;
@@ -168,26 +219,30 @@ const Home: React.FC = () => {
                         <img src={Register} alt="Login"/>
                     </div>
                     <div className="form">
-                        <form >
+                        <Form ref={formRef} onSubmit={handleFormSubmit} >
                             <fieldset>
                                 <div className="field">
                                     <label htmlFor="user">{t('register.labels.user')}</label>
-                                    <input type="text" name="user" id="user" required placeholder="Ex: Jane Doe"/>
+                                    {/* <input type="text" name="user" id="user" required placeholder="Ex: Jane Doe"/> */}
+                                    <Input type="text" name="user" placeholder="Ex: Jane Doe"/>
                                 </div>
 
                                 <div className="field">
                                     <label htmlFor="email">{t('register.labels.email')}</label>
-                                    <input type="email" name="email" id="email" required placeholder="Ex: janedoe@email.com"/>
+                                    {/* <input type="email" name="email" id="email" required placeholder="Ex: janedoe@email.com"/> */}
+                                    <Input type="text" name="email" placeholder="Ex: janedoe@email.com"/>
                                 </div>
 
                                 <div className="form-group">
                                     <div className="field mr-2">
                                         <label htmlFor="password">{t('register.labels.password')}</label>
-                                        <input type="password" id="password" name="password" required placeholder="*******"/>
+                                        {/* <input type="password" id="password" name="password" required placeholder="*******"/> */}
+                                        <Input type="password" name="password" placeholder="*******"/>
                                     </div>
                                     <div className="field">
                                         <label htmlFor="confirmPassword">{t('register.labels.confirmPassword')}</label>
-                                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="*******"/>
+                                        {/* <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="*******"/> */}
+                                        <Input type="password" name="confirmPassword" placeholder="*******"/>
                                     </div>
                                 </div>
                             </fieldset>
@@ -195,7 +250,7 @@ const Home: React.FC = () => {
                             <button type="submit">
                                 {t('register.button')}
                             </button>
-                        </form>
+                        </Form>
                     </div>
                 </section>
             </div>

@@ -177,7 +177,7 @@ header #logo {
     flex: 1;
 }
 
-form .field input {
+.contact form .field input {
     flex: 1;
     margin-top: 0.2em;
     background: white;
