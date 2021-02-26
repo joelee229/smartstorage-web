@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
+import { FiCheckCircle } from 'react-icons/fi';
 
 import Tooltip from '../../components/Tooltip';
 
 interface ContainerProps {
     isErrored: boolean;
+    isFocused: boolean;
+    isFilled: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -12,7 +15,6 @@ export const Container = styled.div<ContainerProps>`
     margin-top: 0.2em;
     background: white;
     border-radius: 6px;
-    border: 0;
     padding: 16px;
     width: 100%;
     border: 2px solid white;
@@ -26,8 +28,16 @@ export const Container = styled.div<ContainerProps>`
         font-family: 'Roboto', sans-serif;
     }
 
+    ${(props) => props.isFocused && css`
+            border-color: #F79D14;  
+    `}
+
     ${(props) => props.isErrored && css`
             border-color: #F52F2C;  
+    `}
+
+    ${(props) => props.isFilled && !props.isErrored && css`
+        border-color: #0DCA00;
     `}
 
 `;
@@ -42,5 +52,14 @@ export const Error = styled(Tooltip)`
             border-color: #c53030 transparent;
         }
     }
+`;
+
+export const CheckIcon = styled(FiCheckCircle)<ContainerProps>`
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    ${(props) => props.isFilled && !props.isErrored && css`
+        opacity: 1;
+    `}
 `;
 

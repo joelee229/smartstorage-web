@@ -21,6 +21,24 @@ const messages = {
                 button: "Empezar ahora"
             },
 
+            validation: {
+                name: {
+                    required: "Nombre requerido"
+                },
+                email: {
+                    required: "Email requerido",
+                    invalid: "Email inválido"
+                },
+                password: {
+                    min: "Al menos 8 dígitos",
+                    matches: "La contraseña debe contener al menos en mayúsculas, minúsculas y números"
+                },
+                confirmPassword: {
+                    required: "Confirmar la contraseña",
+                    when: "Las contraseñas deben coincidir"
+                },
+            },
+
             features: {
                 title: "Caracteristicas",
                 text: "La aplicación cuenta con varias funcionalidades como: el registro de alimentos, aviso de caducidad, búsqueda de recetas en base a tu comida e incluso un servicio exclusivo para quienes tienen la suscripción."

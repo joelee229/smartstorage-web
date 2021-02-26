@@ -31,7 +31,7 @@ header .wrapper, nav, .nav-menu {
     align-items: center;
 }
 
-header #logo {
+#logo {
     transition: all 1s;
 }
 

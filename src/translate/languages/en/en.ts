@@ -21,6 +21,24 @@ const messages = {
                 button: "Start now"
             },
 
+            validation: {
+                name: {
+                    required: "Name required"
+                },
+                email: {
+                    required: "Email required",
+                    invalid: "Invalid email"
+                },
+                password: {
+                    min: "At least 8 digits",
+                    matches: "The password must contain at least Uppercase, lowercase and numbers"
+                },
+                confirmPassword: {
+                    required: "Confirm your password",
+                    when: "Passwords must match"
+                },
+            },
+
             features: {
                 title: "Characteristics",
                 text: "The application has several features such as: the registration of food, notice of expiration dates, search for recipes based on your food and even an exclusive service for those who have the subscription."

@@ -21,6 +21,24 @@ const messages = {
                 button: "Comece já"
             },
 
+            validation: {
+                name: {
+                    required: "Nome obrigatório"
+                },
+                email: {
+                    required: "Email obrigatório",
+                    invalid: "Email inválido"
+                },
+                password: {
+                    min: "No mínimo 8 dígitos",
+                    matches: "A senha deve conter no mínimo Letras maiúsculas, minúscula e números"
+                },
+                confirmPassword: {
+                    required: "Confirme sua senha",
+                    when: "As senhas precisam ser iguais"
+                },
+            },
+
             features: {
                 title: "Características",
                 text: "O aplicativo conta com diversas funcionalidades como: o registro de alimentos, aviso de validades próximas, procura de receitas baseadas nos seus alimentos e ainda um serviço exclusivo para quem possui a assinatura."

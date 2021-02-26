@@ -1,11 +1,10 @@
-import React, {ChangeEvent, useEffect, useCallback, useRef} from 'react';
+import React, {useEffect, useCallback, useRef, FormEvent} from 'react';
 import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import LazyLoad from "react-lazyload";
-import { useTranslation, Trans} from 'react-i18next';
+import { useTranslation} from 'react-i18next';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-// import * as ReactDOM from 'react-dom';
 
 import './styles.css';
 import './responsive.css';
@@ -26,70 +25,23 @@ import Br from '../../assets/illustrations/flags/brasil.png';
 import Spain from '../../assets/illustrations/flags/spain.png';
 import Select from "react-select";
 import getValidationErrors from '../../utils/getValidationErrors';
-
 import Input from '../../components/Input';
 
 
 const Home: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
-    const [sourceLogo, setSourceLogo] = React.useState<string>(LogoExtended);
+    const imgRef = useRef<HTMLImageElement>({} as HTMLImageElement);
     const [currentFlag, setCurrentFlag] = React.useState<string>(Br);
-    // TODO: Adicionar ref para a logo
 
-    // useCallBack => Cria funções que não são renderizadas novamente se algum estado mudar ou coisa do tipo
-    // São memorizadas
-    const handleFormSubmit = useCallback(async (data: object) => {
-        try {
-            formRef.current?.setErrors({});
-            // Criar um shcema para o data que está vindo
-            // TODO: Respostas com o i18n
-            const schema = Yup.object().shape({
-                user: Yup.string()
-                    .required("Nome obrigatório"),
-                email: Yup.string()
-                    .email("Email inválido")
-                    .required("Email obrigatório"),
-                password: Yup.string()
-                    .min(8, "No mínimo 8 dígitos")
-                    .matches(
-                        /^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/,
-                        "A senha deve conter no mínimo Letras maiúsculas, minúscula e números"
-                    ),
-                confirmPassword: Yup.string()
-                    .required("Confirme sua senha")
-                    .when("password", {
-                        is: (val: string) => (val && val.length > 0 ? true : false),
-                        then: Yup
-                          .string()
-                          .oneOf([Yup.ref("password")], "As senhas precisam ser iguais"),
-                    }),
-            });
+    window.onscroll = useCallback(() => scrollFunction(), []);
 
-            await schema.validate(data, {
-                abortEarly: false,
-            });
-        } catch(err) {
-            if (err instanceof Yup.ValidationError) {
-                // Validation failed
-                console.log(err.inner);
-                const validationErrors = getValidationErrors(err);
-
-                formRef.current?.setErrors(validationErrors);
-            }
+    function scrollFunction() {
+        if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+            imgRef.current.src = LogoShort;
+        }else{
+            imgRef.current.src = LogoExtended;
         }
-        // console.log(data);
-    }, []);
-
-    useEffect(() => {
-        const currentLanguage = localStorage.getItem('i18nextLng');
-        if(currentLanguage === "en"){
-            setCurrentFlag(Usa);
-        }else if(currentLanguage === "es"){
-            setCurrentFlag(Spain);
-        }else {
-            setCurrentFlag(Br);
-        }
-    }, []);
+    }
 
     const options = [
         {
@@ -110,8 +62,8 @@ const Home: React.FC = () => {
                 <img src={Spain} alt="Espanhol"/>
             )
         }
-    ]
-    
+    ];
+
     const { t, i18n } = useTranslation();
 
     const changeLanguage = useCallback((lng?: string) => {
@@ -120,20 +72,68 @@ const Home: React.FC = () => {
         }
     }, []);
 
-    window.onscroll = useCallback(() => scrollFunction(), []);
+    // useCallBack => Cria funções que não são renderizadas novamente se algum estado mudar ou coisa do tipo
+    // São memorizadas
+    const handleFormSubmit = useCallback(async (data: object) => {
+        try {
+            formRef.current?.setErrors({});
+            // Criar um schema para o data que está vindo
+            const schema = Yup.object().shape({
+                user: Yup.string()
+                    .required(t('validation.name.required')),
+                email: Yup.string()
+                    .email(t('validation.email.invalid'))
+                    .required(t('validation.email.required')),
+                password: Yup.string()
+                    .min(8, t('validation.password.min'))
+                    .matches(
+                        /^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/,
+                        t('validation.password.matches')
+                    ),
+                confirmPassword: Yup.string()
+                    .required(t('validation.confirmPassword.required'))
+                    .when("password", {
+                        is: (val: string) => (val && val.length > 0 ? true : false),
+                        then: Yup
+                          .string()
+                          .oneOf([Yup.ref("password")], t('validation.confirmPassword.when')),
+                    }),
+            });
 
-    // const imgLogo = document.querySelector("img#logo") as HTMLImageElement;
-    // const logo = ReactDOM.findDOMNode("logo") as HTMLImageElement;
+            await schema.validate(data, {
+                abortEarly: false,
+            });
 
-    function scrollFunction() {
-        if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
-            setSourceLogo(LogoShort);
-            // imgLogo.src = LogoShort;
-        }else{
-            setSourceLogo(LogoExtended);
-            // imgLogo.src = LogoExtended;
+            // Success validation
+        } catch(err) {
+            if (err instanceof Yup.ValidationError) {
+                // Validation failed
+                console.log(err.inner);
+                const validationErrors = getValidationErrors(err);
+
+                formRef.current?.setErrors(validationErrors);
+            }
         }
-    }
+        // console.log(data);
+    }, []);
+
+    const handleMessageSubmit = useCallback(async (event: FormEvent) => {
+        event.preventDefault();
+
+        alert("Enviado com sucesso!!");
+    }, []);
+
+    useEffect(() => {
+        const currentLanguage = localStorage.getItem('i18nextLng');
+        if(currentLanguage === "en"){
+            setCurrentFlag(Usa);
+        }else if(currentLanguage === "es"){
+            setCurrentFlag(Spain);
+        }else {
+            setCurrentFlag(Br);
+        }
+    }, []);
+    
 
     return (
         <div className="container">
@@ -142,7 +142,7 @@ const Home: React.FC = () => {
                 <div className="wrapper">
                     <div className="logoDiv">
                         <a href="#logo">
-                            <img id="logo" src={sourceLogo} alt="Logo"/>
+                            <img id="logo" ref={imgRef} src={LogoExtended} alt="Logo"/>
                         </a>
                     </div>
                     <nav>
@@ -417,7 +417,7 @@ const Home: React.FC = () => {
                     <div className="contact">
                         <h2>{t('footer.contact.title')}</h2>
                         <p><b>Email</b>: smartstorage@gmail.com</p>
-                        <form >
+                        <form onSubmit={handleMessageSubmit}>
                             <fieldset>
                                 <div className="field">
                                     <input type="email" name="emailContact" id="emailContact" required placeholder={t('footer.contact.placeholder.input')}/>
