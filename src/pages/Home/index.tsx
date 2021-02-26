@@ -70,7 +70,7 @@ const Home: React.FC = () => {
         if(lng){
             i18n.changeLanguage(lng);
         }
-    }, []);
+    }, [i18n]);
 
     // useCallBack => Cria funções que não são renderizadas novamente se algum estado mudar ou coisa do tipo
     // São memorizadas
@@ -115,7 +115,7 @@ const Home: React.FC = () => {
             }
         }
         // console.log(data);
-    }, []);
+    }, [t]);
 
     const handleMessageSubmit = useCallback(async (event: FormEvent) => {
         event.preventDefault();

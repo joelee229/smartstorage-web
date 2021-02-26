@@ -10,7 +10,7 @@ import './styles.css';
 import '../../translate/i18n';
 
 const CarouselLib: React.FC = () => {
-    const { t, i18n } = useTranslation();
+    const { t} = useTranslation();
 
     const items = [
         {
